@@ -7,6 +7,28 @@
     <link href="icon/fox-icon.png" rel="icon">
     <script src="index.js" defer></script>
     <link rel="manifest" href="manifest.webmanifest">
+    <script>
+      //Notification
+      window.addEventListener('load', function () {
+              var i = 0;
+              
+                var ntitle = "Title";
+          var options = {
+            icon: 'icon/fox-icon.png',
+            body: 'Hello World!'
+          };
+                    var n = new Notification(ntitle, options);        
+        
+          if (window.Notification && Notification.permission !== "granted") {
+            Notification.requestPermission(function (status) {
+              if (Notification.permission !== status) {
+                Notification.permission = status;
+              }
+            });
+          }
+          });
+      
+      </script>
   </head>
   <body>
     <img src="images/fox1.jpg" alt="a fox picture">
